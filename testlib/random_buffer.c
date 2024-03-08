@@ -13,7 +13,7 @@ randomize_buffer(void *buf, size_t len, unsigned int seed)
 {
     unsigned int *  tmp = (unsigned int *)buf;
     u_int           last;
-    long int        remain = len;
+    uint64_t        remain = len;
     uint64_t        i;
     struct xrand xr;
 
