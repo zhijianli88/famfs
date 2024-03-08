@@ -49,7 +49,7 @@ validate_random_buffer(void *buf, size_t len, unsigned int seed)
     for (i = 0; remain > 0; i++, remain -= sizeof(*tmp)) {
         val = xrand64(&xr);
         if ((remain >= sizeof(*tmp)) && (val != tmp[i])) { /* Likely */
-            return ((int)(len - remain));
+            return ((int64_t)(len - remain));
         } else if (remain < sizeof(*tmp)) { /* Unlikely */
             found = (char *)&tmp[i];
             if (memcmp(expect, found, remain)) {
@@ -57,7 +57,7 @@ validate_random_buffer(void *buf, size_t len, unsigned int seed)
                  * [HSE_REVISIT]
                  * Miscompare offset might be off here
                  */
-                return ((int)(len - remain));
+                return ((int64_t)(len - remain));
             }
         }
     }
