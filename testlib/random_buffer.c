@@ -31,7 +31,7 @@ randomize_buffer(void *buf, size_t len, unsigned int seed)
     }
 }
 
-int
+int64_t
 validate_random_buffer(void *buf, size_t len, unsigned int seed)
 {
     unsigned int *  tmp = (unsigned int *)buf;
